@@ -1,0 +1,21 @@
+{
+    "name": "guliano/esco-holidays",
+    "description": "Polskie święta zwykłe i ruchome",
+    "license": "MIT",
+    "keywords": [
+        "wielkanoc",
+        "święta",
+        "php"
+    ],
+    "config": {
+        "process-timeout": 5000
+    },
+    "require": {
+        "php": ">=5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "EscoHolidays\\": "src/"
+        }
+    }
+}
