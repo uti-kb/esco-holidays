@@ -13,7 +13,7 @@ Instalacja
 ----------
 Najprostszym sposobem instalacji biblioteki jest użycie composera. W konsoli wpisz:
 ```console
-$ composer require guliano/esco-holidays
+$ composer require guliano/esco-holidays:dev-master
 ```
 
 Użycie
