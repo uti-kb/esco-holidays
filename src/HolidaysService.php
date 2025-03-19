@@ -15,13 +15,14 @@ class HolidaysService
     private static $holidays = array(
         '0101' => 'Nowy Rok',
         '0106' => 'Święto Trzech Króli',
-        '0501' => '1 Maja',
-        '0503' => '3 Maja',
-        '0815' => 'WNP',
+        '0501' => 'Święto Państwowe',
+        '0503' => 'Święto Narodowe Trzeciego Maja',
+        '0815' => 'Wniebowzięcie Najświętszej Maryi Panny',
         '1101' => 'Wszystkich Świętych',
         '1111' => 'Dzień Niepodległości',
+        '1224' => 'Wigilia Bożego Narodzenia',
         '1225' => 'Boże Narodzenie',
-        '1226' => 'Boże Narodzenie (2gi dzień)',
+        '1226' => 'Drugi dzień Bożego Narodzenia',
     );
 
     /**
@@ -51,6 +52,11 @@ class HolidaysService
         $date = clone $fromDate;
         while ($date <= $toDate) {
             if (array_key_exists($date->format('md'), self::$holidays)) {
+                if ($date->format('md') === '1224' && $date->format('Y') < 2025) {
+                    // Wigilia jest dniem wolnym od 2025 roku
+                    continue;
+                }
+                
                 $result[$date->format('Ymd')] = self::$holidays[$date->format('md')];
             }
             if (array_key_exists($date->format('Ymd'), $movingHolidays)) {
